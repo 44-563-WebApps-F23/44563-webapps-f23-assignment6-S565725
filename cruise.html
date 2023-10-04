@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Part 7: use checkboxes</title>
+    </head>
+ 
+<body>
+
+<h2>Hema goes on a cruise</h2>
+
+    <form>
+        <input type="checkbox" id="sharesCabin" value="True">   
+        <label for="sharesCabin">SharesCabin</label></br>
+      
+        <input type="checkbox" id="breakfast" 
+           value="True">
+        <label for="breakfast">Breakfast</label></br>
+      
+        <input type="checkbox" id="Pool Pass"  
+           value="False">
+        <label for="Pool Pass">Pool pass</label></br>
+
+        <input type="button" onclick="selectCruise()" value="Select a cruise">
+      </form>
+    
+<p id="result">RESULT </p>
+
+<script> 
+function selectCruise() {
+    my_cruise = {};
+    const sharesCabinCheckbox = document.getElementById('sharesCabin');
+    const breakfastCheckbox = document.getElementById('breakfast');
+    const poolPassCheckbox = document.getElementById('poolPass');
+
+  // Set properties based on checkbox state
+  my_cruise.shared = sharesCabinCheckbox.checked;
+  my_cruise.breakfast = breakfastCheckbox.checked;
+  my_cruise.pool = poolPassCheckbox.checked;
+   
+  const cruiseDetailsElement = document.getElementById('cruiseDetails');
+  cruiseDetailsElement.innerHTML = JSON.stringify(my_cruise, null, 2);
+
+</script>
+
+</body>
+</html> 

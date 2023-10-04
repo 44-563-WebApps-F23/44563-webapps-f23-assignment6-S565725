@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Part 5: Get values and do a looping computation.</title>
+    </head>
+ 
+<body>
+
+<h2>Shows tip amounts</h2>
+
+<form>
+    <label for="base_amount">Enter base amount </label>
+    <input type ="number" id="base_amount" name="base_amount" value='50'> <br>
+
+    <label for="tip_amount">Enter the tip percent </label>
+    <input type ="number" id="tip_amount" name="tip_amount" value = '15' autofocus> <br>
+
+    <input type="button" onclick="tips()" value="Show tip">
+</form>
+
+
+<p id="results">Tips are:</p>
+
+<script> 
+
+function tips (){
+    
+    const amountInput =  parseFloat(document.getElementById('base_amount').value);
+    const tipInput = parseFloat(document.getElementById('tip_amount').value);
+    let myOutput = '';
+    let tip= tipInput;
+    for (let i = 0; i < 5; i++) {
+        const calculatedTip = (amountInput * tip) / 100;
+        myOutput += `${tip}% is ${calculatedTip.toFixed(2)}; `;
+        tip += 4;
+      }
+     const tipresult = document.getElementById('results');
+     tipresult.innerHTML = 'Tips are: '+ myOutput;
+    
+}
+</script>
+
+</body>
+</html> 
