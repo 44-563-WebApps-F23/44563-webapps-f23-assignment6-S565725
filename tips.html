@@ -15,6 +15,16 @@
     <label for="tip_amount">Enter the tip percent </label>
     <input type ="number" id="tip_amount" name="tip_amount" value = '15' autofocus> <br>
 
+    <input type="radio" id="csum" name="cal" value="sum" onclick="chooseOp()">
+        <label for="sum">SUM</label></br>
+
+        <input type="radio" id="cdiff" name="cal" value="difference" onclick="chooseOp()">
+        <label for="diff">DIFFERENCE</label></br>
+
+        <input type="radio" id="cmul" name="cal" value="product" onclick="chooseOp()">
+        <label for="mult">MULTIPLICATION</label></br>
+      
+
     <input type="button" onclick="tips()" value="Show tip">
 </form>
 
@@ -39,6 +49,46 @@ function tips (){
     
 }
 </script>
+
+
+<script> 
+    function chooseOp() {
+        
+        const amountInput =  parseFloat(document.getElementById('base_amount').value);
+        const tipInput = parseFloat(document.getElementById('tip_amount').value);
+        
+  var c=0;      
+  let ans = '';
+
+   sum = document.getElementById("csum").checked
+
+   diff = document.getElementById("cdiff").checked
+
+   mult = document.getElementById("cmult").checked
+      if (operation === "sum") {
+        c = amountInput+tipInput;
+        ans = "Sum of "+ amountInput+tipInput+"is "+ c;
+      } else if (operation === "difference") {
+        c = amountInput-tipInput;
+        ans = "Difference of "+ amountInput + tipInput + "is: "+ c;
+      } else if (operation === "product") {
+        c = amountInput * tipInput;
+        ans = "Product of "+ amountInput + tipInput + "is: "+ c;
+      }
+    }
+
+
+  document.getElementById("results").innerHTML =c;
+
+
+
+
+
+
+
+
+    
+    </script>
 
 </body>
 </html> 
