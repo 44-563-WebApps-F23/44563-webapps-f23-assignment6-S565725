@@ -20,16 +20,27 @@
         <label for="Pool Pass">Pool pass</label></br>
 
         <input type="button" onclick="selectCruise()" value="Select a cruise">
+
+
       </form>
     
-<p id="result">RESULT </p>
+<p id="resultCHECK">RESULT </p>
+<form>
+    <label for="days">Enter num of days</label>
+    <input type="text" id = "days" name="days" value="7">
+
+    <label for="price">Enter price</label>
+    <input type="text" id="price" name="price" value="1000">
+
+    <input type="button" onClick="updateCruise()" value = "Update the cruise">
+</form>
 
 <script> 
 function selectCruise() {
     my_cruise = {};
     const sharesCabinCheckbox = document.getElementById('sharesCabin');
     const breakfastCheckbox = document.getElementById('breakfast');
-    const poolPassCheckbox = document.getElementById('poolPass');
+    const poolPassCheckbox = document.getElementById('PoolPass');
 
   // Set properties based on checkbox state
   my_cruise.shared = sharesCabinCheckbox.checked;
@@ -37,11 +48,34 @@ function selectCruise() {
   my_cruise.pool = poolPassCheckbox.checked;
    
   const cruiseDetailsElement = document.getElementById('cruiseDetails');
-  cruiseDetailsElement.innerHTML=result.my_cruise.shared;
-  cruiseDetailsElement.innerHTML=result.my_cruise.breakfast;
-  cruiseDetailsElement.innerHTML=result.my_cruise.pool;
+  if(document.getElementById("ShareCabin").checked){
+    my_cruise["ShareCabin"] = true;
+  }
+  
+  if (document.getElementById("Breakfast").checked) {
+                my_cruise.Breakfast = true;
+            }
+            
 
-}
+            if (document.getElementById("Pool pass").checked) {
+                my_cruise.Pool Pass = false;
+            }
+            
+
+            document.getElementById("resultCheck").innerHTML = "SharedCabin: " + my_cruise.SharedCabin + "; Breakfast: " + my_cruise.Breakfast + "; Pool Pass: " + my_cruise.Pool Pass + ";";
+        }
+
+        function updateCruise() {
+
+            var days = document.getElementById("days").value;
+            var price = document.getElementById("price").value;
+            my_cruise["days"] = days;
+            my_cruise["price"] = price;
+            document.getElementById("resultCheck").innerHTML = "ShareCabin: " + my_cruise.shared + "; Breakfast: " + my_cruise.breakfast + "; Pool Pass: " + my_cruise.pool + "; days: " + my_cruise.days + "; price: " + my_cruise.price + ";";
+        }
+
+
+
 </script>
 
 </body>
