@@ -10,11 +10,10 @@
 
     <form>
         <input type="checkbox" id="sharesCabin" value="True">   
-        <label for="sharesCabin">SharesCabin</label></br>
+        <label for="SharesCabin">SharesCabin</label></br>
       
-        <input type="checkbox" id="breakfast" 
-           value="True">
-        <label for="breakfast">Breakfast</label></br>
+        <input type="checkbox" id="breakfast" value="True">
+        <label for="Breakfast">Breakfast</label></br>
       
         <input type="checkbox" id="Pool Pass"  
            value="False">
@@ -38,9 +37,12 @@ function selectCruise() {
   my_cruise.pool = poolPassCheckbox.checked;
    
   const cruiseDetailsElement = document.getElementById('cruiseDetails');
-  cruiseDetailsElement.innerHTML = JSON.stringify(my_cruise, null, 2);
+  cruiseDetailsElement.innerHTML=result.my_cruise.shared;
+  cruiseDetailsElement.innerHTML=result.my_cruise.breakfast;
+  cruiseDetailsElement.innerHTML=result.my_cruise.pool;
 
+}
 </script>
 
 </body>
-</html> 
+</html>
